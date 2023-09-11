@@ -22,18 +22,14 @@ public class TextBoxTests {
         System.out.println("Real size: " + WebDriverRunner.getWebDriver().manage().window().getSize());
 
         $("#userName").setValue("Bad name");
-        $("#userEmail").setValue("Some@mail.com");
+        $("#userEmail").setValue("aaa@aa.aa");
         $("#currentAddress").setValue("shape str, 99");
         $("#permanentAddress").setValue("gulp str, 99");
         $("#submit").scrollTo();
         $("#submit").click();
 
-        $("#output #name").shouldHave(text("Bad name"));
-        $("#userEmail").shouldHave(text("Some@mail.com"));
-        $("#currentAddress").shouldHave(text("shape str, 99"));
-        $("#permanentAddress").shouldHave(text("gulp str, 99"));
+        $("#output").shouldHave(text("Bad name"), text("aaa@aa.aa"),
+         text("shape str, 99"), text("gulp str, 99"));
 
-        $("#output").shouldHave(text("Bad name"), text("Some@mail.com"),
-                text("shape str, 99"), text("gulp str, 99"));
     }
 }
