@@ -40,10 +40,13 @@ public class PracticeFormTestsCommentsWithPageObject extends TestBase {
         //+Выбор для ввода обьекта из перечня, выбираем ",biology" с предвыбором по вводу символов
         $("#subjectsInput").setValue("b").pressEnter();
         //установка даты в датапикер
+        registrationPage.calendar.setDate("030", "July", "2001");
+        /*
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("July");
         $(".react-datepicker__year-select").selectOption("2008");
         $(".react-datepicker__day.react-datepicker__day--003").click();
+          */
                 //выбор в выпадающем меню штата и города. Выбираем штат НЦР и город Нойда
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();

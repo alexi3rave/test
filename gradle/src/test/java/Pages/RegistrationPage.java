@@ -1,5 +1,6 @@
 package Pages;
 
+import Pages.components.CalendarComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
@@ -13,6 +14,7 @@ public class RegistrationPage {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             resultsTable = $(".table-responsive");
+public CalendarComponent calendar = new CalendarComponent();
 
     //actions
     public void openPage() {
