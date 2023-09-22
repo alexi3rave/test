@@ -2,6 +2,7 @@ package ru.alexi3rave;
 
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
+import utilits.RandomUtils;
 
 import java.io.File;
 
@@ -9,9 +10,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static ru.alexi3rave.TestData.email;
 
-public class PracticeFormTestsCommentsWithPageObject extends TestBase {
+public class PracticeFormTestsCommentsWithRandomUtils extends TestBase {
 
-
+String firstName = RandomUtils.getRandomString(8);
     @Test
     void fillFormTest() {
         registrationPage.openPage();
@@ -19,9 +20,9 @@ public class PracticeFormTestsCommentsWithPageObject extends TestBase {
         System.out.println("Real size: " + WebDriverRunner.getWebDriver().manage().window().getSize());
 
         //ввод в поле имя Bad
+        $("#firstName").setValue(firstName);
         //ввод в поле фамилия Boy
-        registrationPage.typeFirstName("Bad")
-                        .typeLastName("Boy");
+        registrationPage.typeLastName("Boy");
 
                 //ввод в поле емейл aaa@aa.aa
         $("#userEmail").setValue(email);
@@ -60,7 +61,7 @@ public class PracticeFormTestsCommentsWithPageObject extends TestBase {
 
         $("#submit").click();
         //время на осмотр результата
-        registrationPage.checkResultsValue("Student Name", "Bad Boy")
+        registrationPage.checkResultsValue("Student Name", firstName + " Boy")
                         .checkResultsValue("Email", email);
 
         sleep(5000);
